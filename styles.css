@@ -25,6 +25,7 @@ h3 {
 input {
   margin: 5px 0;
   height: 30px;
+  width: 95%;
   padding-left: 10px;
   border-radius: 5px;
   border: 1px solid #ddd;
