@@ -44,7 +44,6 @@ input::placeholder {
 .input-form {
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 
 .btn {
