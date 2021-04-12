@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Task List</title>
+  </head>
+  <body>
+    <!-- CARD Container -->
+    <div class="card-container">
+      <!-- INPUT FORM -->
+      <h1>Task list</h1>
+      <form id="form" class="input-form">
+        <label for="task">Task Input</label>
+        <input type="text" name="task" placeholder="Your Task" id="task" />
+        <button type="submit" id="task-btn" class="submit-btn btn">
+          SUBMIT
+        </button>
+      </form>
+
+      <!-- FILTER FORM -->
+      <h2>Tasks</h2>
+      <div class="filter-box">
+        <label for="filter">Filter Tasks</label>
+        <input type="text" name="filter" placeholder="Filter" id="filter" />
+      </div>
+      <hr />
+      <ul class="collection"></ul>
+      <!-- <input type="submit" value="CLEAR TASKS" class="clear-btn" /> -->
+      <button type="submit" class="clear-btn btn">CLEAR TASKS</button>
+    </div>
+
+    <!-- POPUP DESIGN -->
+    <!-- OVERLAY SCREEN -->
+    <div class="overlay hidden"></div>
+
+    <!-- BLANK INPUT CARD -->
+    <div class="blank-card hidden">
+      <h3 class="alert-heading">ERROR!</h3>
+      <p class="alert-text"></p>
+      <button class="ok alert-btn">OK</button>
+    </div>
+
+    <!-- PERMISION ASK CARD -->
+    <div class="alert-card hidden">
+      <h3 class="alert-heading">ARE YOU SURE?</h3>
+      <p class="alert-text"></p>
+      <button class="yes alert-btn">YES</button>
+      <button class="cancel alert-btn">Cancel</button>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
