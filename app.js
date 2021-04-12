@@ -79,7 +79,7 @@ function cleartask(e) {
   if (e.target.classList.contains("fa-remove")) {
     overlay.classList.remove("hidden");
     alertCard.classList.remove("hidden");
-    alertText.textContent = `Do you want to delete "${e.target.parentElement.firstChild.textContent}"`;
+//     alertText.textContent = `Do you want to delete "${e.target.parentElement.firstChild.textContent}"`;
     yesBtn.addEventListener("click", function () {
       overlay.classList.add("hidden");
       alertCard.classList.add("hidden");
@@ -104,7 +104,7 @@ function clearTasks(e) {
   if (e.target.classList.contains("clear-btn")) {
     overlay.classList.remove("hidden");
     alertCard.classList.remove("hidden");
-    alertText.textContent = "Are you sure you want to delete all the Tasks?";
+//     alertText.textContent = "Are you sure you want to delete all the Tasks?";
     yesBtn.addEventListener("click", function () {
       overlay.classList.add("hidden");
       alertCard.classList.add("hidden");
