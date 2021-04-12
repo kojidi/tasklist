@@ -181,3 +181,25 @@ input::placeholder {
 .hidden {
   display: none;
 }
+
+@media (max-width: 470px) {
+  .card-container {
+    width: 70vw;
+    padding: 20px 25px;
+  }
+
+  .list .list-p {
+    width: 87%;
+  }
+
+  .blank-card,
+  .alert-card {
+    width: 70vw;
+  }
+}
+
+@media (max-width: 350px) {
+  .list .list-p {
+    width: 83%;
+  }
+}
