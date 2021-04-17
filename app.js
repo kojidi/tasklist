@@ -29,6 +29,7 @@ function getInput(e) {
   if (inputTask.value === "") {
     overlay.classList.remove("hidden");
     blankCard.classList.remove("hidden");
+    alertText.textContent = "Please add a task!"
 
     okBtn.addEventListener("click", function () {
       overlay.classList.add("hidden");
@@ -67,51 +68,24 @@ function getInput(e) {
 
 // Clear Task
 function cleartask(e) {
-  // if (e.target.classList.contains("fa-remove")) {
-  // if (
-  //   confirm(
-  //     `Do you want to delete "${e.target.parentElement.firstChild.textContent}"`
-  //   )
-  // ) {
-  //   e.target.parentElement.remove();
-  // }
-
-  if (e.target.classList.contains("fa-remove")) {
-    overlay.classList.remove("hidden");
-    alertCard.classList.remove("hidden");
-//     alertText.textContent = `Do you want to delete "${e.target.parentElement.firstChild.textContent}"`;
-    yesBtn.addEventListener("click", function () {
-      overlay.classList.add("hidden");
-      alertCard.classList.add("hidden");
-      e.target.parentElement.remove();
-    });
+   if (e.target.classList.contains("fa-remove")) {
+   if (
+     confirm(
+       `Do you want to delete`
+     )
+   ) {
+     e.target.parentElement.remove();
   }
-
-  cancelBtn.addEventListener("click", function () {
-    overlay.classList.add("hidden");
-    alertCard.classList.add("hidden");
-  });
+}
 }
 
 // Clear All Tasks
 function clearTasks(e) {
-  //   if (confirm("Are you sure you want to delete all the Tasks?")) {
-  //     while (tasksList.firstChild != null) {
-  //       tasksList.removeChild(tasksList.firstChild);
-  //     }
-  //   }
-
-  if (e.target.classList.contains("clear-btn")) {
-    overlay.classList.remove("hidden");
-    alertCard.classList.remove("hidden");
-//     alertText.textContent = "Are you sure you want to delete all the Tasks?";
-    yesBtn.addEventListener("click", function () {
-      overlay.classList.add("hidden");
-      alertCard.classList.add("hidden");
-      while (tasksList.firstChild != null) {
-        tasksList.removeChild(tasksList.firstChild);
-      }
-    });
+     if (confirm("Are you sure you want to delete all the Tasks?")) {
+       while (tasksList.firstChild != null) {
+         tasksList.removeChild(tasksList.firstChild);
+       }
+     }
   }
 
   cancelBtn.addEventListener("click", function () {
