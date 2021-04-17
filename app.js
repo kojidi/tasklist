@@ -86,12 +86,6 @@ function clearTasks(e) {
          tasksList.removeChild(tasksList.firstChild);
        }
      }
-  }
-
-  cancelBtn.addEventListener("click", function () {
-    overlay.classList.add("hidden");
-    alertCard.classList.add("hidden");
-  });
   e.preventDefault();
 }
 
