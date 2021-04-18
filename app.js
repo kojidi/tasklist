@@ -12,7 +12,6 @@ const formTask = document.querySelector("#form"),
   alertCard = document.querySelector(".alert-card"),
   blankCard = document.querySelector(".blank-card"),
   alertText = document.querySelector(".alert-text"),
-  alertHeading = document.querySelector(".alert-heading"),
   yesBtn = document.querySelector(".yes"),
   cancelBtn = document.querySelector(".cancel"),
   okBtn = document.querySelector(".ok");
@@ -29,7 +28,6 @@ function getInput(e) {
   if (inputTask.value === "") {
     overlay.classList.remove("hidden");
     blankCard.classList.remove("hidden");
-    alertText.textContent = "Please add a task!"
 
     okBtn.addEventListener("click", function () {
       overlay.classList.add("hidden");
@@ -68,24 +66,68 @@ function getInput(e) {
 
 // Clear Task
 function cleartask(e) {
-   if (e.target.classList.contains("fa-remove")) {
-   if (
-     confirm(
-       `Do you want to delete`
-     )
-   ) {
-     e.target.parentElement.remove();
+  // if (e.target.classList.contains("fa-remove")) {
+  // if (
+  //   confirm(
+  //     `Do you want to delete "${e.target.parentElement.firstChild.textContent}"`
+  //   )
+  // ) {
+  //   e.target.parentElement.remove();
+  // }
+
+  if (e.target.classList.contains("fa-remove")) {
+    overlay.classList.remove("hidden");
+    alertCard.classList.remove("hidden");
+    alertText.innerHTML = `Are sure you want to delete this <b>"${e.target.parentElement.firstChild.textContent}"</b> Task?`;
+
+    yesBtn.addEventListener("click", function () {
+      overlay.classList.add("hidden");
+      alertCard.classList.add("hidden");
+      e.target.parentElement.remove();
+    });
+
+    cancelBtn.addEventListener("click", function () {
+      overlay.classList.add("hidden");
+      alertCard.classList.add("hidden");
+    });
   }
-}
+  e.preventDefault();
 }
 
 // Clear All Tasks
 function clearTasks(e) {
-     if (confirm("Are you sure you want to delete all the Tasks?")) {
-       while (tasksList.firstChild != null) {
-         tasksList.removeChild(tasksList.firstChild);
-       }
-     }
+  //   if (confirm("Are you sure you want to delete all the Tasks?")) {
+  //     while (tasksList.firstChild != null) {
+  //       tasksList.removeChild(tasksList.firstChild);
+  //     }
+  //   }
+
+  yesBtn.classList.add("all-tasks");
+  cancelBtn.classList.add("all-tasks");
+  if (e.target.classList.contains("clear-btn")) {
+    overlay.classList.remove("hidden");
+    alertCard.classList.remove("hidden");
+    alertText.textContent = "Are you sure you want to delete all the Tasks?";
+
+    yesBtn.addEventListener("click", function (e) {
+      if (e.target.classList.contains("all-tasks")) {
+        overlay.classList.add("hidden");
+        alertCard.classList.add("hidden");
+        while (tasksList.firstChild != null) {
+          tasksList.removeChild(tasksList.firstChild);
+          e.target.classList.remove("all-tasks");
+        }
+      }
+    });
+    cancelBtn.addEventListener("click", function (e) {
+      if (e.target.classList.contains("all-tasks")) {
+        overlay.classList.add("hidden");
+        alertCard.classList.add("hidden");
+        e.target.classList.remove("all-tasks");
+      }
+    });
+  }
+
   e.preventDefault();
 }
 
